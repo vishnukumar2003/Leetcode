@@ -8,12 +8,11 @@ class Solution {
            if((num.charAt(i)==num.charAt(i+1)) && (num.charAt(i+1)==num.charAt(i+2)))
            {
                count=num.charAt(i)-'0';
-               if(count>max)
+                if(count>max)
            {
             max=count;
            }
            }
-           
         }
         String s="";
         if(max==Integer.MIN_VALUE)
