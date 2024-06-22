@@ -5,7 +5,6 @@ class Solution {
         int z=0;
         for(int i=deck.length-1;i>=0;i--){
             arr[z++]=deck[i];
-
         }
         List <Integer> li=new ArrayList<>();
        
@@ -14,25 +13,17 @@ class Solution {
                int last= li.get(li.size()-1);
                li.remove(li.size()-1);
                 li.add(0,last);
-               li.add(0,i);
-              
-               
-            //    return li;
-              
+               li.add(0,i); 
             }
             else{
                 li.add(i);
             }
         }
-       
         int y=0;
         for(int j:li){
             arr[y++]=j;
         }
-        return arr;
-
-      
-        
+        return arr;  
     }
 }
 
