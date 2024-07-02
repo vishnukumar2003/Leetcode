@@ -1,26 +1,47 @@
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode() {}
+ *     TreeNode(int val) { this.val = val; }
+ *     TreeNode(int val, TreeNode left, TreeNode right) {
+ *         this.val = val;
+ *         this.left = left;
+ *         this.right = right;
+ *     }
+ * }
+ */
 class Solution {
     public boolean leafSimilar(TreeNode root1, TreeNode root2) {
-        List<Integer> lft = new ArrayList<>();
-        List<Integer> rgt = new ArrayList<>();
-        
-        getLeafValues(root1, lft);
-        getLeafValues(root2, rgt);
-        
-        return lft.equals(rgt);
-    }
+        ArrayList<Integer>lft=new ArrayList<>();
+        ArrayList<Integer>rgt=new ArrayList<>();
+        sum(root1,lft);
+        sum(root2,rgt);
     
-    private void getLeafValues(TreeNode root, List<Integer> leaves) {
-        if (root == null) {
+    return lft.equals(rgt);
+    }
+    public void sum(TreeNode root,ArrayList<Integer>li)
+    {
+        if(root==null)
+        {
             return;
         }
-        if (root.left == null && root.right == null) {
-            leaves.add(root.val);
-        } else {
-            if (root.left != null) {
-                getLeafValues(root.left, leaves);
+        if(root.left==null && root.right==null)
+
+        {
+           li.add(root.val);
+        }
+        else
+        {
+            if(root.left!=null)
+            {
+                sum(root.left,li);
             }
-            if (root.right != null) {
-                getLeafValues(root.right, leaves);
+            if(root.right!=null)
+            {
+                sum(root.right,li);
             }
         }
     }
