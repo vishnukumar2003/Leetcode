@@ -1,20 +1,32 @@
 class Solution {
     public String sortVowels(String s) {
-        StringBuilder sb = new StringBuilder(s);
-        List<Integer> index = new ArrayList<>();
-        List<Character> ch = new ArrayList<>();
-        for(int i=0; i<s.length(); i++){
-            char c = s.charAt(i);
-            char ch1 =Character.toLowerCase(c);
-            if(ch1=='a' || ch1=='e' || ch1=='i' || ch1=='o' || ch1=='u'){
-                 index.add(i);
-                 ch.add(c);
-            }
+       List <Character> vow=new ArrayList<>();
+       StringBuilder sb=new StringBuilder(s);
+       for(int i=0;i<s.length();i++)
+       {
+        char g=s.charAt(i);
+        char k=Character.toLowerCase(g);
+        if(k=='a' || k=='e' || k=='i' || k=='o' || k=='u')
+        {
+            vow.add(g);
+            sb.setCharAt(i,'*');
         }
-        Collections.sort(ch);
-        for(int i=0; i<index.size() ; i++){
-           sb.setCharAt(index.get(i),ch.get(i));
+       }
+       Collections.sort(vow);
+       String ans="";
+       int k=0;
+       for(int i=0;i<sb.length();i++)
+       {
+        if(sb.charAt(i)=='*')
+        {
+            ans=ans+vow.get(k);
+            k++;
         }
-        return sb.toString();
+        else
+        {
+            ans=ans+sb.charAt(i);
+        }
+       }
+return ans;
     }
 }
